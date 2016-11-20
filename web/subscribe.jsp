@@ -26,9 +26,7 @@
     </head>
     <body style="height:1500px" onload="submit()">
 
-        <c:if test= "${empty sessionScope.user}">
-            <c:redirect url="Controler/subscribe.jsp"></c:redirect>
-        </c:if>
+      
         <jsp:useBean id="activities" scope="application" class="util.Utility"/>
      <%@include file="head.jsp" %>    <!-- Container 2  -->
         <div id="main">

@@ -1,11 +1,5 @@
-<%-- 
-    Document   : page6
-    Created on : Nov 19, 2016, 7:38:52 PM
-    Author     : shahin.behrooz@gmail.com
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,29 +26,34 @@
                     <div class="span8">
 
                         <div class="contenu-pages">
-                            <h1>Se connecter</h1>
+                            <h1>Enregistrement de nouvel abonné</h1>
                             <form  action="Controler" method="POST">
-                                <input type="hidden" name="action" value="login">
+                                <input type="hidden" name="action" value="signup">
                                 <fieldset>
 
                                     <div >
 
                                         <div >
                                             <label>Courriel</label>
-                                            <input name="username" class="span4" type="text" tabindex="1" value required placeholder="exemple@domain.com " oninvalid="checkEmail(this)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                            <input name="email" class="span4" type="text" tabindex="1" value required placeholder="exemple@domain.com" oninvalid="checkEmail(this)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                         </div>
 
+                                        <div >
+                                            <label>Nom d'utilisateur</label>
+                                            <input name="name" class="span4" type="text" tabindex="1" value required placeholder="luckylook1995">
+                                        </div>
                                         <div>
                                             <label>Mot de passe</label>
+                                            <input name="Password" class="span4" type="password" autocomplete="off" tabindex="2">
+                                        </div>
+                                        <div>
+                                            <label>Répéter le mot de pass</label>
                                             <input name="Password" class="span4" type="password" autocomplete="off" tabindex="2">
                                         </div>
 
                                         <div >
                                             <input id="btnLogin" type="submit" class=" btn-success " tabindex="6" value="Connexion"/>
-
                                         </div>
-                                        <a class="linkPw" href="#">mot de passe oublié ?</a><br>
-                                        <a class="linkPw" href="signup.jsp">Je veux m'enregistrer</a>
 
                                     </div>
                                 </fieldset>

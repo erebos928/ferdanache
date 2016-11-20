@@ -39,7 +39,7 @@
                                     <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
                                     <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
                                     <li  class=" menu-item-5"><a href="page5.jsp" >Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="#" class="active">Se connecter</a></li>
+                                    <li  class="menu-item-6"><a href="page6.jsp" class="active">Se connecter</a></li>
 
 
                                 </ul>
