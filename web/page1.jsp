@@ -1,16 +1,16 @@
 <%-- 
-    Document   : affichageQuery
-    Created on : 15 nov. 2016, 20:55:22
-    Author     : Mohamed
+    Document   : page1
+    Created on : Nov 19, 2016, 8:11:12 PM
+    Author     : shahin.behrooz@gmail.com
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SessionProject</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/MailChimp.css" rel="stylesheet" media="all" type="text/css">  
@@ -20,82 +20,48 @@
         <link href="css/w3School.css" rel="stylesheet" media="all" type="text/css">
         <script type="text/javascript" src="jscript/ProjetScripts.js"></script>
     </head>
-    <body>
+
     <body style="height:1500px">
 
-        <header id="top" >
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="span4">
-                        <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="span12">
-
-                        <nav id="main-nav" class="span12">
-
-                            <div class="menu-main-nav-container">
-
-                                <ul  class="menu">
-
-                                    <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
-                                    <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp" class="active">Horaire</a></li>
-                                    <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
-
-
-                                </ul>
-
-                            </div>                   
-
-                        </nav>
-
-                    </div>
-                </div>
-
-            </div>
-        </header>
-        <!-- header end-->
+ <%@include file="head.jsp" %>        <!-- header end-->
         <!-- Container 2  -->
         <div id="main">
             <div class="page1">
                 <div class="container">
                     <div class="span8">
 
-                        <div class="contenu-pages ">
+                        <div class="contenu-pages">
+                            <div id="historique"></div>
+
+                            <h1>Historique, mission et&nbsp;valeurs</h1>
+                            <h3>Historique</h3>
+                            <p>Fondé en mars 1988 et installé en novembre de la même année dans les locaux de l’ancienne école Notre Dame, 
+                                le Centre de Loisirs LeSoleil est le résultat d’un projet commun élaboré par la Ville de Montréal et une Association privée à but non lucratif. 
+                                On se préoccupe avec une vive inquiétude des enfants qui sont voués à eux-mêmes soit à midi 
+                                soit en fin d’après-midi en raison du travail des obligations de leurs deux parents.Cette situation largement nouvelle dans la 
+                                société citadine d’alors encourage une poignée de citoyens (presque tous issus de mouvements de cadets, d’éclaireurs ou de jeunesses paroissiales) 
+                                a mettre sur pied un lieu d’accueil sûr où ces enfants trouvent refuge et distraction.L’enthousiasme aidant, l’affaire est rondement menée 
+                                et le Centre de Loisirs ouvre ses portes huit mois après son assemblée constitutive. Sans relâche depuis le CDL s’est constamment efforcé 
+                                d’adapter ses méthodes de travail aux évolutions de la société. Il est en effet confronté par sa nature même à la frange la plus mouvante de la population, 
+                                celle des adolescents en quête d’identité. Piloté par des professionnels de l’animation socioculturelle il contribue de manière déterminante à l’intégration 
+                                de jeunes garçons et de jeunes filles dans une structure sociale, à la fois protectrice et responsabilisante.</p>
 
 
-                            <h1>Horaire</h1>
-                            <h3>Les horaire disponibles pour l'activité ${requestScope.activitQuery} </h3>
+                            <h3>Mission et valeurs</h3>
 
-                            <table class="table  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>DATE</th>
-                                        <th>HORAIRE</th>
-                                        <th>LOCALE</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="Horaire" items="${ requestScope.horaireList}">
-                                        <tr>                         
-                                            <td><fmt:formatDate value="${Horaire.id.hdate}" dateStyle="full"/></td>
-                                            <td><c:out value="${Horaire.creneau.heureDebut}"/></td>
-                                            <td><c:out value="${Horaire.salle.salleId}"/></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
+                            <p>Le Centre de loisir LeSoleil a pour mission d’offrir un service de loisirs de qualité à caractère socio-récréatif, éducatif, économique 
+                                et sanitaire accessible à la population de Montréal et de promouvoir le loisir comme étant un outil et moyen de développement, 
+                                de prévention et d’intégration sociale et culturelle.
 
+                            <p>Les objectifs sociaux sont de :</p>
+
+                            <ul>
+                                <li class="essai">Regrouper les gens au temps du loisir en créant un milieu de vie dans un encadrement physique</li>
+                                <li>Agir en interaction avec les gens du milieu</li>
+                                <li>Permettre à ses membres et usagers, regroupés par secteurs d’âges, l’accès à diverses formes de loisirs</li>
+                                <li>Favoriser le développement intégral de la personne et la prise en charge des citoyens dans leur communauté locale 
+                                    en utilisant le moyen privilégié du loisir et de l’action communautaire</li>
+                            </ul>
                         </div>
 
 
@@ -106,6 +72,9 @@
 
 
                     <div class="row">
+
+
+
 
                         <!-- Container 2 row 2 span 4-->
                         <div class="span3">
@@ -122,7 +91,7 @@
 
                                 <p>Pour tout savoir sur la programmation, les activités gratuites, les événements à venir, etc.</p>
 
-                                <div>
+                                <div >
                                     <form action="#" method="Post" name="" >
                                         <div >
                                             <label  for="email">Courriel</label>  
@@ -146,7 +115,7 @@
 
                                 <a class="photo" href="#" title="Course en famille 2016"><img width="800" height="307" src="photo/coursePhoto.jpg"  alt="" ></a>
 
-                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg"  alt=""></a>
+                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg"  ></a>
 
                                 <div class="bouton-ouvert">
 
@@ -193,9 +162,9 @@
                                 <ul  class="menu">
 
                                     <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
+                                    <li  class="menu-item-2"><a href="#">Qui sommes-nous?</a></li>
                                     <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
+                                    <li  class="menu-item-3"><a href="#">Horaire</a></li>
                                     <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
                                     <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
                                     <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
@@ -222,6 +191,8 @@
         </script>
 
 
+
+
     </body>
-</body>
 </html>
+

@@ -1,16 +1,17 @@
 <%-- 
-    Document   : affichageQuery
-    Created on : 15 nov. 2016, 20:55:22
-    Author     : Mohamed
+    Document   : page5
+    Created on : Nov 19, 2016, 8:07:58 PM
+    Author     : shahin.behrooz@gmail.com
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SessionProject</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/MailChimp.css" rel="stylesheet" media="all" type="text/css">  
@@ -20,93 +21,33 @@
         <link href="css/w3School.css" rel="stylesheet" media="all" type="text/css">
         <script type="text/javascript" src="jscript/ProjetScripts.js"></script>
     </head>
-    <body>
+
     <body style="height:1500px">
 
-        <header id="top" >
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="span4">
-                        <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="span12">
-
-                        <nav id="main-nav" class="span12">
-
-                            <div class="menu-main-nav-container">
-
-                                <ul  class="menu">
-
-                                    <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
-                                    <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp" class="active">Horaire</a></li>
-                                    <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
-
-
-                                </ul>
-
-                            </div>                   
-
-                        </nav>
-
-                    </div>
-                </div>
-
-            </div>
-        </header>
-        <!-- header end-->
+  <%@include file="head.jsp" %>       <!-- header end-->
         <!-- Container 2  -->
         <div id="main">
             <div class="page1">
                 <div class="container">
                     <div class="span8">
 
-                        <div class="contenu-pages ">
-
-
-                            <h1>Horaire</h1>
-                            <h3>Les horaire disponibles pour l'activité ${requestScope.activitQuery} </h3>
-
-                            <table class="table  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>DATE</th>
-                                        <th>HORAIRE</th>
-                                        <th>LOCALE</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="Horaire" items="${ requestScope.horaireList}">
-                                        <tr>                         
-                                            <td><fmt:formatDate value="${Horaire.id.hdate}" dateStyle="full"/></td>
-                                            <td><c:out value="${Horaire.creneau.heureDebut}"/></td>
-                                            <td><c:out value="${Horaire.salle.salleId}"/></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-
+                        <div class="contenu-pages">
+                            <h1>Pour nous joindre</h1>
+                            <h4>Centre de Loisirs Le Soleil</h4>
+                            <p>2345, rue Le Ciel<br>
+                                Montréal (Québec) &nbsp;H7L3M8</p>
+                            <p>514 111-0000</p>
+                            <p><a title="Envoyer un courriel à info@lesoleil.com" href="mailto:info@lesoleil.com">info@lesoleil.com</a></p>
+                            <h4>Heures d’ouverture</h4>                          
+                            <p>Le Centre est ouvert du lundi au vendredi de 8 h à 22 h ainsi que les samedis<br>
+                                et dimanches de 9 h à 17 h.</p>
+                            <div align="center">
+                                <image src="photo\map.jpg" align="center" class="scale-with-grid wp-post-image" />     
+                            </div>           
+                        </div><!-- contenu-pages -->
                     </div>
-
-
                     <!-- Container 1 row 1 -->
-
-
                     <div class="row">
-
                         <!-- Container 2 row 2 span 4-->
                         <div class="span3">
                             <div class="module-inscription">
@@ -133,10 +74,10 @@
                                 </div>
                                 <div class="icones-medias-sociaux">
                                     <div class="icone-media-social">
-                                        <a href="https://www.facebook.com" title="Accédez à la page facebook du Centre de Loisirs leSoleil" target="_blank"><img src="photo/btnFacebook.png" alt="Accédez à la page facebook du Centre de Loisirs communautaires Le Soleil"></a>
+                                        <a href="https://www.facebook.com" title="Accédez à la page facebook du Centre de Loisirs le Soleil" target="_blank"><img src="photo/btnFacebook.png" alt="Accédez à la page facebook du Centre de Loisirs communautaires Le Soleil"></a>
                                     </div><!-- icone-media-social -->
                                     <div class="icone-media-social">
-                                        <a href="https://www.twitter.com" title="Accédez à la page Twitter du Centre de Loisirs leSoleil" target="_blank"><img src="photo/btnTwitter.jpg" alt="Accédez à la page Twitter du Centre de Loisirs communautaires Le Soleil"></a>
+                                        <a href="https://www.twitter.com" title="Accédez à la page Twitter du Centre de Loisirs le Soleil" target="_blank"><img src="photo/btnTwitter.jpg" alt="Accédez à la page Twitter du Centre de Loisirs communautaires Le Soleil"></a>
                                     </div><!-- icone-media-social -->
                                 </div><!-- icones-medias-sociaux -->
                             </div><!-- medias-sociaux -->
@@ -144,9 +85,9 @@
                             <div class="gal-photo">
                                 <h2>Galeries photos</h2>
 
-                                <a class="photo" href="#" title="Course en famille 2016"><img width="800" height="307" src="photo/coursePhoto.jpg"  alt="" ></a>
+                                <a class="photo" href="#" title="Course en famille 2016"><img width="800" height="307" src="photo/coursePhoto.jpg" class="scale-with-grid wp-post-image" alt=""  ></a>
 
-                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg"  alt=""></a>
+                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg" class="scale-with-grid wp-post-image" alt=""></a>
 
                                 <div class="bouton-ouvert">
 
@@ -164,9 +105,6 @@
                 </div> <!-- Container  End-->
             </div>
         </div>
-
-
-
         <footer id="footer">
 
             <div class="container">
@@ -174,15 +112,11 @@
                 <div class="row">
                     <div class="texture">
                         <img src="photo/textureFooter.jpg" alt="Texture du bas de page">
-
-
                     </div>
                     <div class="row">
-
-
                         <div class="span9">
                             <div class="footer-col">
-                                <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=200 HEIGHT=400 BORDER=0 class="img-circle" ></a>
+                                <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=200 HEIGHT=400 BORDER=0 class="img-circle"/></a>
                                 <p class="adresse">2345, rue Le ciel<br>Montréal (Québec)  H7L3M8</p>
                                 <p class="adresse">514 111-0000</p>
                             </div><!-- footer-col -->
@@ -191,13 +125,12 @@
                         <div class="span3">
                             <div class="footer-col">
                                 <ul  class="menu">
-
-                                    <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
+                                    <li class="menu-item-1" ><a href="Main.jsp" class="active">Acceuil</a></li>
+                                    <li  class="menu-item-2"><a href="page1.jsp">Qui sommes-nous?</a></li>
                                     <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
                                     <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
                                     <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
+                                    <li  class=" menu-item-5"><a href="#" >Nous joindre</a></li>
                                     <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
                                 </ul>
                             </div>
@@ -221,7 +154,6 @@
             });
         </script>
 
-
     </body>
-</body>
 </html>
+

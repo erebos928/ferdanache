@@ -1,69 +1,29 @@
 <%-- 
-    Document   : affichageQuery
-    Created on : 15 nov. 2016, 20:55:22
-    Author     : Mohamed
+    Document   : page6
+    Created on : Nov 19, 2016, 7:38:52 PM
+    Author     : shahin.behrooz@gmail.com
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SessionProject</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/MailChimp.css" rel="stylesheet" media="all" type="text/css">  
-        <link href="css/projet2.css" rel="stylesheet" media="all" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/projet2.css" rel="stylesheet" media="all" type="text/css">
         <link href="css/w3School.css" rel="stylesheet" media="all" type="text/css">
-        <script type="text/javascript" src="jscript/ProjetScripts.js"></script>
+        <script type="text/javascript" src="script/ProjetScripts.js"></script>
     </head>
-    <body>
+
     <body style="height:1500px">
-
-        <header id="top" >
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="span4">
-                        <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="span12">
-
-                        <nav id="main-nav" class="span12">
-
-                            <div class="menu-main-nav-container">
-
-                                <ul  class="menu">
-
-                                    <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
-                                    <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp" class="active">Horaire</a></li>
-                                    <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
-
-
-                                </ul>
-
-                            </div>                   
-
-                        </nav>
-
-                    </div>
-                </div>
-
-            </div>
-        </header>
+        <%@include file="head.jsp" %>
         <!-- header end-->
         <!-- Container 2  -->
         <div id="main">
@@ -71,42 +31,42 @@
                 <div class="container">
                     <div class="span8">
 
-                        <div class="contenu-pages ">
+                        <div class="contenu-pages">
+                            <h1>Se connecter</h1>
+                            <form  action="Controler" method="POST">
+                                <input type="hidden" name="action" value="login">
+                                <fieldset>
+
+                                    <div >
+
+                                        <div >
+                                            <label>Courriel</label>
+                                            <input name="username" class="span4" type="text" tabindex="1" value required placeholder="exemple@domain.com " oninvalid="checkEmail(this)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                        </div>
+
+                                        <div>
+                                            <label>Mot de passe</label>
+                                            <input name="Password" class="span4" type="password" autocomplete="off" tabindex="2">
+                                        </div>
+
+                                        <div >
+                                            <input id="btnLogin" type="submit" class=" btn-success " tabindex="6" value="Connexion"/>
+
+                                        </div>
+                                        <a class="linkPw" href="#">mot de passe oublié ?</a>
 
 
-                            <h1>Horaire</h1>
-                            <h3>Les horaire disponibles pour l'activité ${requestScope.activitQuery} </h3>
+                                    </div>
+                                </fieldset>
+                            </form>
 
-                            <table class="table  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>DATE</th>
-                                        <th>HORAIRE</th>
-                                        <th>LOCALE</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="Horaire" items="${ requestScope.horaireList}">
-                                        <tr>                         
-                                            <td><fmt:formatDate value="${Horaire.id.hdate}" dateStyle="full"/></td>
-                                            <td><c:out value="${Horaire.creneau.heureDebut}"/></td>
-                                            <td><c:out value="${Horaire.salle.salleId}"/></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-
-                        </div>
-
+                        </div><!-- contenu-pages -->
 
                     </div>
 
-
                     <!-- Container 1 row 1 -->
 
-
                     <div class="row">
-
                         <!-- Container 2 row 2 span 4-->
                         <div class="span3">
                             <div class="module-inscription">
@@ -133,10 +93,10 @@
                                 </div>
                                 <div class="icones-medias-sociaux">
                                     <div class="icone-media-social">
-                                        <a href="https://www.facebook.com" title="Accédez à la page facebook du Centre de Loisirs leSoleil" target="_blank"><img src="photo/btnFacebook.png" alt="Accédez à la page facebook du Centre de Loisirs communautaires Le Soleil"></a>
+                                        <a href="https://www.facebook.com" title="Accédez à la page facebook du Centre de Loisirs le Soleil" target="_blank"><img src="photo/btnFacebook.png" alt="Accédez à la page facebook du Centre de Loisirs communautaires Le Soleil"></a>
                                     </div><!-- icone-media-social -->
                                     <div class="icone-media-social">
-                                        <a href="https://www.twitter.com" title="Accédez à la page Twitter du Centre de Loisirs leSoleil" target="_blank"><img src="photo/btnTwitter.jpg" alt="Accédez à la page Twitter du Centre de Loisirs communautaires Le Soleil"></a>
+                                        <a href="https://www.twitter.com" title="Accédez à la page Twitter du Centre de Loisirs le Soleil" target="_blank"><img src="photo/btnTwitter.jpg" alt="Accédez à la page Twitter du Centre de Loisirs communautaires Le Soleil"></a>
                                     </div><!-- icone-media-social -->
                                 </div><!-- icones-medias-sociaux -->
                             </div><!-- medias-sociaux -->
@@ -144,9 +104,9 @@
                             <div class="gal-photo">
                                 <h2>Galeries photos</h2>
 
-                                <a class="photo" href="#" title="Course en famille 2016"><img width="800" height="307" src="photo/coursePhoto.jpg"  alt="" ></a>
+                                <a class="photo" href="#" title="Course en famille 2016"><img width="800" height="307" src="photo/coursePhoto.jpg" class="scale-with-grid wp-post-image" alt=""></a>
 
-                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg"  alt=""></a>
+                                <a class="photo" href="#" title="Course en famille 2016"><img width="300" height="307" src="photo/coursePhoto3.jpg" class="scale-with-grid wp-post-image" alt=""></a>
 
                                 <div class="bouton-ouvert">
 
@@ -164,8 +124,6 @@
                 </div> <!-- Container  End-->
             </div>
         </div>
-
-
 
         <footer id="footer">
 
@@ -193,12 +151,13 @@
                                 <ul  class="menu">
 
                                     <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp" >Qui sommes-nous?</a></li>
+                                    <li  class="menu-item-2"><a href="page1.jsp">Qui sommes-nous?</a></li>
                                     <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
                                     <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
                                     <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp">Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
+                                    <li  class=" menu-item-5"><a href="page5.jsp" >Nous joindre</a></li>
+                                    <li  class="menu-item-6"><a href="#" class="active">Se connecter</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -220,8 +179,6 @@
                 divs.css('opacity', percent);
             });
         </script>
-
-
     </body>
-</body>
 </html>
+
