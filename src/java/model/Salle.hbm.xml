@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 nov. 2016 16:07:06 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <!--<class name="model.Salle" table="SALLE" schema="HR" optimistic-lock="version">-->
+    <class name="model.Salle" table="SALLE" schema="UG3ED06" optimistic-lock="version">
+        <id name="salleId" type="string">
+            <column name="SALLE_ID" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="capacite" type="java.lang.Byte">
+            <column name="CAPACITE" precision="2" scale="0" />
+        </property>
+        <set name="horaires" table="HORAIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SALLE_ID" length="3" not-null="true" />
+            </key>
+            <one-to-many class="model.Horaire" />
+        </set>
+    </class>
+</hibernate-mapping>

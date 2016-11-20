@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 nov. 2016 16:07:06 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <!--<class name="model.Participant" table="PARTICIPANT" schema="HR" optimistic-lock="version">-->
+    <class name="model.Participant" table="PARTICIPANT" schema="UG3ED06" optimistic-lock="version">
+        <id name="partcId" type="int">
+            <column name="PARTC_ID" precision="6" scale="0" />
+            <generator class="native"  />
+        </id>
+        <many-to-one name="activite" class="model.Activite" fetch="select">
+            <column name="ACT_ID" length="5" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="NOM" length="30" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="PRENOM" length="30" not-null="true" />
+        </property>
+        <property name="adresse" type="string">
+            <column name="ADRESSE" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="50" not-null="true" />
+        </property>
+        <property name="tel" type="string">
+            <column name="TEL" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

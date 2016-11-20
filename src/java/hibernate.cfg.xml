@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <!--<property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.103:1521:orcl</property>-->   
+<!--    <property name="hibernate.connection.username">hr</property>
+    <property name="hibernate.connection.password">hr</property>-->
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@oracleadudb1.bdeb.qc.ca:1521:gdna10</property>
+    <property name="hibernate.connection.username">ug3ed06</property>
+    <property name="hibernate.connection.password">d93qa4</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="model/Horaire.hbm.xml"/>
+    <mapping resource="model/Activite.hbm.xml"/>
+    <mapping resource="model/Creneau.hbm.xml"/>
+    <mapping resource="model/Salle.hbm.xml"/>
+    <mapping resource="model/Niveau.hbm.xml"/>
+    <mapping resource="model/Participant.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

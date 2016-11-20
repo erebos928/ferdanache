@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 nov. 2016 16:07:06 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <!--<class name="model.Horaire" table="HORAIRE" schema="HR" optimistic-lock="version">-->
+    <class name="model.Horaire" table="HORAIRE" schema="UG3ED06" optimistic-lock="version">
+        <composite-id name="id" class="model.HoraireId">
+            <key-property name="hdate" type="date">
+                <column name="HDATE" length="7" />
+            </key-property>
+            <key-property name="creneauId" type="string">
+                <column name="CRENEAU_ID" length="10" />
+            </key-property>
+            <key-property name="salleId" type="string">
+                <column name="SALLE_ID" length="3" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="creneau" class="model.Creneau" update="false" insert="false" fetch="select">
+            <column name="CRENEAU_ID" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="salle" class="model.Salle" update="false" insert="false" fetch="select">
+            <column name="SALLE_ID" length="3" not-null="true" />
+        </many-to-one>
+        <many-to-one name="activite" class="model.Activite" fetch="select">
+            <column name="ACT_ID" length="5" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
