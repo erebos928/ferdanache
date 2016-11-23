@@ -6,7 +6,7 @@
 package persistance;
 
 import java.util.List;
-import model.Subscriber;
+import model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,23 +16,23 @@ import util.HibernateUtil;
  *
  * @author Mohamed
  */
-public class DAOSignup {
+public class DAOUser {
 
     private Session session;
     private Transaction tx;
     private Query query;
-    public static String query_subscriber = "from Subscriber s where s.name like '";
-    public DAOSignup() {
+    public static String query_user = "from User u where u.email = '";
+    public DAOUser() {
 
         session = HibernateUtil.currentSession();
     }
 
 
-    public void insertSignupData(Subscriber subscriber) {
+    public void insertSignupData(User user) {
 
         try {
             session.getTransaction().begin();
-            session.saveOrUpdate(subscriber);
+            session.saveOrUpdate(user);
             session.getTransaction().commit();
 
         } catch (RuntimeException e) {
@@ -46,12 +46,12 @@ public class DAOSignup {
     }
     
     //To have differents activities queries
-    public List executeHQLQueryActivity(String username) {
+    public List<User> executeHQLQueryUser(String email) {
 
-        String requete = query_subscriber + username + "%'";
+        String requete = query_user + email + "'";
 
         query = session.createQuery(requete);
-
+        
         List resultat = query.list();
 
 

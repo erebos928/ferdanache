@@ -32,13 +32,11 @@
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
                     <div class="span4"></div>
-                    
-                    <div class="span1"></div>
+                    <div class="span1">Utilisateur: </div>
                     <div class="span1"></div>
                     <c:if test="not empty ${user}">
-                    <div class="span1">${user.name}</div>
-                    </c:if>
-                </div>
+                    <span class="label label-success">${user.name}</span>    
+                    </c:if>                </div>
                     
 
                 <div class="row">

@@ -9,10 +9,10 @@ package model;
  *
  * @author 1695223
  */
-public class Subscriber {
+public class User {
     String name;
     String password;
-    private String subscriberId;
+    private String userId;
     private String email;
     
     public String getName() {
@@ -31,23 +31,25 @@ public class Subscriber {
         this.password = password;
     }
 
-    public Subscriber(String name, String password) {
+    public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
-
+    public User(){
+        
+    }
     /**
      * @return the subscriberId
      */
-    public String getSubscriberId() {
-        return subscriberId;
+    public String getUserId() {
+        return userId;
     }
 
     /**
-     * @param subscriberId the subscriberId to set
+     * @param userId the subscriberId to set
      */
-    public void setSubscriberId(String subscriberId) {
-        this.subscriberId = subscriberId;
+    public void setUserId(String subscriberId) {
+        this.userId = userId;
     }
 
     /**

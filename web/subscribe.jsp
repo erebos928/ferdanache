@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" errorPage="erreur.jsp"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/tlds/functions" prefix="f" %>
 
 <!DOCTYPE html>
@@ -36,15 +35,12 @@
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
                     <div class="span4"></div>
-                    
-                    <div class="span1"></div>
+                    <div class="span1">Utilisateur: </div>
                     <div class="span1"></div>
                     <c:if test="not empty ${user}">
-                    <div class="span1">${user.name}</div>
+                    <span class="label label-success">${user.name}</span>    
                     </c:if>
-                </div>
-                    
-
+               </div>
                 <div class="row">
 
                     <div class="span12">
@@ -86,7 +82,7 @@
 
                             <h1> Pour s'inscrire</h1>
 
-                            <form  action="Controler" method="POST">
+                             <form  action="Controler" method="POST">
                                 <input type="hidden" name="action" value="toSubscribe">
                                 <c:set var="selectedLocaleActivite" value="${param.activite}" />
                                 <c:set var="selectedFlagActivity" value="${!empty selectedLocaleActivite}" />
