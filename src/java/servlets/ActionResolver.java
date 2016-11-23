@@ -21,6 +21,8 @@ public class ActionResolver {
             return new QueryAction();
         if ("login".equals(action))
             return new LoginAction();
+        if ("signup".equals(action))
+            return new SignupAction();
         else
             return new Action(){public Result execute(HttpServletRequest request, HttpServletResponse response){return new Result("/Main.jsp");}};
     }

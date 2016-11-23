@@ -1,5 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,12 +27,12 @@
                     </div>
                     <div class="span4"></div>
                     
+                    <div class="span1">Utilisateur: </div>
                     <div class="span1"></div>
-                    <div class="span1"></div>
-                    <c:if test="not empty ${user}">
-                    <div class="span1">${user.name}</div>
+                   <c:if test="not empty ${user}">
+                    <span class="label label-success">${user.name}</span>    
                     </c:if>
-                </div>
+               </div>
                     
 
                 <div class="row">
@@ -75,6 +76,13 @@
 
                         <div class="contenu-pages">
                             <h1>Enregistrement de nouvel abonné</h1>
+                            <c:if test="not empty ${signupMessage}">
+                                <div class="alert alert-danger fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Error!</strong> ${signupMessage}
+                                </div>
+                            </c:if>
+                                    
                             <form  action="Controler" method="POST">
                                 <input type="hidden" name="action" value="signup">
                                 <fieldset>
