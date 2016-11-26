@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ActionResolver {
     public Action getAction(HttpServletRequest request){
         String action = request.getParameter("action");
+        System.out.println(action);
         if ("toSubscribe".equals(action))
             return new InscriptionAction();
         if("query".equals(action))
@@ -23,6 +24,8 @@ public class ActionResolver {
             return new LoginAction();
         if ("signup".equals(action))
             return new SignupAction();
+        if ("logout".equals(action))
+            return new LogoutAction();
         else
             return new Action(){public Result execute(HttpServletRequest request, HttpServletResponse response){return new Result("/Main.jsp");}};
     }

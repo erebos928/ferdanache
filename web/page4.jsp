@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +36,16 @@
                     
                     <div class="span1"></div>
                     <div class="span1"></div>
-                    <c:if test="not empty ${user}">
-                    <div class="span1">${user.name}</div>
+                    <c:if test="${not empty(user)}">
+                        <div class="span1"></div>
+                        <div class="span2">
+                        <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo">${user.name}</label>
+                        <div id="demo" class="collapse">
+                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout">logout</a></label> 
+                        </div>
+                        </div>
                     </c:if>
-                </div>
+                    </div>
                     
 
                 <div class="row">

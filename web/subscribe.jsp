@@ -6,11 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" errorPage="erreur.jsp"%>
 <%@ taglib uri="/WEB-INF/tlds/functions" prefix="f" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SessionProject</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +18,7 @@
         <link href="css/MailChimp.css" rel="stylesheet" media="all" type="text/css">  
         <link href="css/projet2.css" rel="stylesheet" media="all" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/w3School.css" rel="stylesheet" media="all" type="text/css">
         <script type="text/javascript" src="jscript/ProjetScripts.js"></script>
         <script type="text/javascript" src="jscript/FichierJQuery.js"></script>
@@ -35,10 +35,14 @@
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
                     <div class="span4"></div>
-                    <div class="span1">Utilisateur: </div>
-                    <div class="span1"></div>
-                    <c:if test="not empty ${user}">
-                    <span class="label label-success">${user.name}</span>    
+                    <c:if test="${not empty(user)}">
+                        <div class="span1"></div>
+                        <div class="span2">
+                        <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-user"></span>&#160;${user.name}</label>
+                        <div id="demo" class="collapse">
+                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout"><span class="glyphicon glyphicon-log-out"></span>&#160;logout</a></label> 
+                        </div>
+                        </div>
                     </c:if>
                </div>
                 <div class="row">
