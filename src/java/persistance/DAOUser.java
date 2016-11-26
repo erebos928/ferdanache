@@ -36,7 +36,7 @@ public class DAOUser {
             session.getTransaction().commit();
 
         } catch (RuntimeException e) {
-
+            e.printStackTrace();
             session.getTransaction().rollback();
 
         } 

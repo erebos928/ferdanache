@@ -7,6 +7,7 @@ package servlets;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.User;
 import persistance.DAOUser;
 
 /**
@@ -22,7 +23,13 @@ public class SignupAction implements Action{
         if (daoUser.executeHQLQueryUser(email).size() > 0)
         {
             request.setAttribute("signupMessage", "L'utilisateur: " + email + " existe déjà.");
+            System.out.println("sign");
             return new Result("/signup.jsp");
+        }
+        else
+        {
+            User user = new User(email, request.getParameter("name"),request.getParameter("Password"));
+            daoUser.insertSignupData(user);
         }
         return new Result("/signup.jsp");
     }

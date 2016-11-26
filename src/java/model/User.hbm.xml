@@ -4,9 +4,9 @@
 <hibernate-mapping>
   <!--<class name="model.Salle" table="SALLE" schema="HR" optimistic-lock="version">-->
   <class name="model.User" optimistic-lock="version" schema="UG3ED06" table="USERS">
-    <id name="userId" type="string">
-      <column length="3" name="USER_ID"/>
-      <generator class="assigned"/>
+    <id name="userId" type="integer">
+      <column name="USER_ID"/>
+      <generator class="increment"/>
     </id>
     <property name="name" type="string">
       <column length="30" name="NAME" not-null="true" unique="true"/>

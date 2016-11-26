@@ -12,7 +12,7 @@ package model;
 public class User {
     String name;
     String password;
-    private String userId;
+    private int userId;
     private String email;
     
     public String getName() {
@@ -31,8 +31,9 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String password) {
+    public User(String email,String name, String password) {
         this.name = name;
+        this.email = email;
         this.password = password;
     }
     public User(){
@@ -41,15 +42,15 @@ public class User {
     /**
      * @return the subscriberId
      */
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
     /**
      * @param userId the subscriberId to set
      */
-    public void setUserId(String subscriberId) {
-        this.userId = userId;
+    public void setUserId(int subscriberId) {
+        this.userId = subscriberId;
     }
 
     /**

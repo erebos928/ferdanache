@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +32,10 @@
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
                     <div class="span4"></div>
+                    <c:if test="${not empty(user)}">
                     <div class="span1">Utilisateur: </div>
                     <div class="span1"></div>
-                    <c:if test="not empty ${user}">
+                    
                     <span class="label label-success">${user.name}</span>    
                     </c:if>
                 </div>
