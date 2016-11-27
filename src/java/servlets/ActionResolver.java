@@ -28,6 +28,9 @@ public class ActionResolver {
             return new LogoutAction();
         if ("changelang".equals(action))
             return new ChangeLanguageAction();
+        if ("search".equals(action))
+            return new SearchAction();
+        
         else
             return new Action(){public Result execute(HttpServletRequest request, HttpServletResponse response){return new Result("/Main.jsp");}};
     }

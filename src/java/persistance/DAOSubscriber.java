@@ -6,10 +6,13 @@
 package persistance;
 
 import java.util.List;
+import model.Horaire;
 import model.Participant;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 /**
@@ -69,4 +72,19 @@ public class DAOSubscriber {
         return resultat;
 
     }
+    public List<Horaire> executeOveralQuery(String activity, String fromDate, String toDate,String fromHour,String toHour) {
+
+        Criteria criteria = session.createCriteria(Horaire.class);
+        if (activity != null && activity.trim().length() > 0)
+            criteria.createCriteria("activite").add(Restrictions.eq("categorie", activity));
+        if (fromHour != null && fromHour.trim().length() > 0)
+            criteria.createCriteria("creneau").add(Restrictions.ge("heureDebut", fromHour));
+        
+        List<Horaire> resultat = criteria.list();
+        //Horaire h = (Horaire) resultat.iterator().next();
+        //System.out.println(h.getActivite().getCategorie());
+        return resultat;
+
+    }
+    
 }

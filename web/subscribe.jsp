@@ -76,13 +76,76 @@
             </div>
 
         </header>
-   <!-- Container 2  -->
-        <div id="main">
+        
+
+        <div class="container">
+        <div class="row">  
+        <div class="col-sm-4">
+                        
+                        <div class="contenu-pages">
+                            <form action='Controler' method="Post">
+                                <input type="hidden" name="action" value="search"/>
+                        <div class="form-group">
+                            <label for="act">Activité</label>
+                            <input type="text" class="form-control" id="act" name="activity">
+                        </div>
+                        <div class="form-group">
+                            <label for="act">De</label>
+                            <input type="text" class="form-control" id="de" name="fromDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="act">À</label>
+                            <input type="text" class="form-control" id="a" name="toDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="act">Début</label>
+                            <input type="text" class="form-control" id="debut" name="fromHour">
+                        </div>
+                        <div class="form-group">
+                            <label for="act">Fin</label>
+                            <input type="text" class="form-control" id="fin" name="toHour">
+                        </div>
+                        <button type="submit" class="btn btn-default">Chercher</button>
+                            </form>
+                        </div>
+                    </div>
+        <c:if test="${searchResult}">
+            <div id="main" class="col-sm-8">
+            <div class="page1">
+                <div class="container">
+                    
+                          <table class="table">
+    <thead>
+      <tr>
+        <th>Activité</th>
+        <th>De</th>
+        <th>À</th>
+        <th>Salle</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <c:forEach items="${horaires}" var="horaire">  
+      <tr>
+        <td>${horaire.activite.categorie}</td>
+        <td>${horaire.creneau.heureDebut}</td>
+        <td>${horaire.creneau.heureFin}</td>
+        <td>${horaire.salle.salleId}</td>
+        <td>${horaire.id.hdate}</td>
+      </tr>
+        </c:forEach>
+    </tbody>
+                              </table>
+                    
+                        </div>
+                </div>
+            </div>
+            </c:if>
+                       <c:if test="${!searchResult}">
+               <div id="main" class="col-sm-8">
             <div class="page1">
                 <div class="container">
                     <div class="span8">
-
-                        <div class="contenu-pages">
 
                             <h1> Pour s'inscrire</h1>
 
@@ -206,7 +269,8 @@
                             </form>
 
                         </div>
-                    </div>
+                    
+                                            
                     <!-- Container 1 row 1 -->
                     <div class="row">
                         <!-- Container 2 row 2 span 4-->
@@ -264,6 +328,12 @@
                 </div> <!-- Container  End-->
             </div>
         </div>
+    </c:if>
+
+                    </div>
+    </div>
+           <!-- Container 2  -->
+           
         <footer id="footer">
 
             <div class="container">
