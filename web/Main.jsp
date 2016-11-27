@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -21,9 +22,8 @@
         <link href="css/w3School.css" rel="stylesheet" media="all" type="text/css">
         <script type="text/javascript" src="jscript/ProjetScripts.js"></script>
     </head>
-
     <body style="height:1500px">
-
+        
            <header id="top" >
             <div class="container">
 
@@ -32,15 +32,33 @@
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
                     <div class="span4"></div>
-                    <c:if test="${not empty(user)}">
-                        <div class="span1"></div>
+                        
                         <div class="span2">
-                        <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-user"></span>&#160;${user.name}</label>
+                    <c:if test="${not empty(user)}">
+                       <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-user"></span>&#160;${user.name}</label>
                         <div id="demo" class="collapse">
-                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout"><span class="glyphicon glyphicon-log-out"></span>&#160;logout</a></label> 
-                        </div>
-                        </div>
+                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout"><span class="glyphicon glyphicon-log-out"></span>&#160; <fmt:message key="logout"/></a></label> 
+                        </div>    
                     </c:if>
+
+                        </div>  
+                        
+                    <div class="span1">
+                         <label type="label" class="label label-warning" data-toggle="collapse" data-target="#lang">${applicationScope.currentLanguage}
+                       </label>
+                       <div id="lang" class="collapse"> 
+                           <ul>
+                                     <c:forTokens items="${initParam.langs}" delims="," var="langage">
+                                            <c:if test="${langage ne applicationScope.currentLanguage}">
+                                            <li>
+                                                <label type="label" class="label label-warning" data-toggle="collapse" data-target="#lang">
+                                                <a href="Controler?action=changelang&page=Main.jsp&lang=${langage}">${langage}</a>
+                                           </label>
+                                            </li> 
+                                            </c:if>
+                                     </c:forTokens>
+                           </ul>
+                    </div>   
                 </div>
                     
 
@@ -54,13 +72,13 @@
 
                                 <ul  class="menu">
 
-                                    <li class="menu-item-1" ><a href="Main.jsp" class="active">Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp">Qui sommes-nous?</a></li>
-                                    <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
-                                    <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp" >Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp">Se connecter</a></li>
+                                    <li class="menu-item-1" ><a href="Main.jsp" class="active"><fmt:message key="home"/></a></li>
+                                    <li  class="menu-item-2"><a href="page1.jsp"><fmt:message key="whoweare"/></a></li>
+                                    <li  class="menu-item-3"><a href="page2.jsp"><fmt:message key="activities"/></a></li>
+                                    <li  class="menu-item-3"><a href="page3.jsp"><fmt:message key="schedule"/></a></li>
+                                    <li  class=" menu-item-4"><a href="subscribe.jsp"><fmt:message key="registration"/></a></li>
+                                    <li  class=" menu-item-5"><a href="page5.jsp" ><fmt:message key="contactus"/></a></li>
+                                    <li  class="menu-item-6"><a href="page6.jsp"><fmt:message key="login"/></a></li>
 
 
                                 </ul>
@@ -136,7 +154,7 @@
 
                                 <div class="devenez-membre">
 
-                                    <h2>Devenez membre</h2>
+                                    <h2><fmt:message key="main.becomemember"/></h2>
                                     <p>Faites partie du Centre LeSoleil!</p>
                                     <a class="bouton-savoir-plus" href="#" title="Devenir membre du Centre de Loisirs communautaires LeSoleil">Pour en savoir plus&nbsp;➝</a>
 

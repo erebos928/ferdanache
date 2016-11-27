@@ -9,4 +9,12 @@
     <welcome-file-list>
         <welcome-file>Main.jsp</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>langs</param-name>
+        <param-value>en,fr</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+        <param-value>en</param-value>
+    </context-param>
 </web-app>

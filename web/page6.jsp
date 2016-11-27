@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +32,38 @@
                     <div class="span4">
                         <a href="Main.jsp"><img src="photo/logo2.jpg" WIDTH=800 HEIGHT=900 BORDER=0 class="img-circle" ></a>
                     </div>
-                    <div class="span4"></div>
-                    <c:if test="${not empty(user)}">
-                        <div class="span1"></div>
+                     <div class="span4"></div>
+                        
                         <div class="span2">
-                        <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-user"></span>&#160;${user.name}</label>
+                    <c:if test="${not empty(user)}">
+                       <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-user"></span>&#160;${user.name}</label>
                         <div id="demo" class="collapse">
-                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout"><span class="glyphicon glyphicon-log-out"></span>&#160;logout</a></label> 
-                        </div>
-                        </div>
+                            <label type="label" class="label label-success" data-toggle="collapse" data-target="#demo"><a href="Controler?action=logout"><span class="glyphicon glyphicon-log-out"></span>&#160; <fmt:message key="logout"/></a></label> 
+                        </div>    
                     </c:if>
+
+                        </div>  
+                        
+                    <div class="span1">
+                         <label type="label" class="label label-warning" data-toggle="collapse" data-target="#lang">${applicationScope.currentLanguage}
+                       </label>
+                       <div id="lang" class="collapse"> 
+                           <ul>
+                                     <c:forTokens items="${initParam.langs}" delims="," var="langage">
+                                            <c:if test="${langage ne applicationScope.currentLanguage}">
+                                            <li>
+                                                <label type="label" class="label label-warning" data-toggle="collapse" data-target="#lang">
+                                                <a href="Controler?action=changelang&page=page6.jsp&lang=${langage}">${langage}</a>
+                                           </label>
+                                            </li> 
+                                            </c:if>
+                                     </c:forTokens>
+                           </ul>
+                    </div>   
                 </div>
                     
 
-                <div class="row">
+               <div class="row">
 
                     <div class="span12">
 
@@ -54,14 +73,13 @@
 
                                 <ul  class="menu">
 
-                                    <li class="menu-item-1" ><a href="Main.jsp" >Acceuil</a></li>
-                                    <li  class="menu-item-2"><a href="page1.jsp">Qui sommes-nous?</a></li>
-                                    <li  class="menu-item-3"><a href="page2.jsp">Activités</a></li>
-                                    <li  class="menu-item-3"><a href="page3.jsp">Horaire</a></li>
-                                    <li  class=" menu-item-4"><a href="subscribe.jsp">Inscription</a></li>
-                                    <li  class=" menu-item-5"><a href="page5.jsp" >Nous joindre</a></li>
-                                    <li  class="menu-item-6"><a href="page6.jsp" class="active">Se connecter</a></li>
-
+                                   <li class="menu-item-1" ><a href="Main.jsp"><fmt:message key="home"/></a></li>
+                                    <li  class="menu-item-2"><a href="page1.jsp"><fmt:message key="whoweare"/></a></li>
+                                    <li  class="menu-item-3"><a href="page2.jsp"><fmt:message key="activities"/></a></li>
+                                    <li  class="menu-item-3"><a href="page3.jsp"><fmt:message key="schedule"/></a></li>
+                                    <li  class=" menu-item-4"><a href="subscribe.jsp"><fmt:message key="registration"/></a></li>
+                                    <li  class=" menu-item-5"><a href="page5.jsp" ><fmt:message key="contactus"/></a></li>
+                                    <li  class="menu-item-6"><a href="page6.jsp" class="active"><fmt:message key="login"/></a></li>
 
                                 </ul>
 
@@ -84,7 +102,7 @@
                     <div class="span8">
 
                         <div class="contenu-pages">
-                            <h1>Se connecter</h1>
+                            <h1><fmt:message key="contactus"/></h1>
                             <form  action="Controler" method="POST">
                                 <input type="hidden" name="action" value="login">
                                 <fieldset>
@@ -92,21 +110,21 @@
                                     <div >
 
                                         <div >
-                                            <label>Courriel</label>
+                                            <label><fmt:message key="email"/></label>
                                             <input name="username" class="span4" type="text" tabindex="1" value required placeholder="exemple@domain.com " oninvalid="checkEmail(this)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                         </div>
 
                                         <div>
-                                            <label>Mot de passe</label>
+                                            <label><fmt:message key="password"/></label>
                                             <input name="password" class="span4" type="password" autocomplete="off" tabindex="2">
                                         </div>
 
                                         <div >
-                                            <input id="btnLogin" type="submit" class=" btn-success " tabindex="6" value="Connexion"/>
+                                            <input id="btnLogin" type="submit" class=" btn-success " tabindex="6" value="<fmt:message key="signin"/>"/>
 
                                         </div>
-                                        <a class="linkPw" href="#">mot de passe oublié ?</a><br>
-                                        <a class="linkPw" href="signup.jsp">Je veux m'enregistrer</a>
+                                        <a class="linkPw" href="#"><fmt:message key="forgotten"/></a><br>
+                                        <a class="linkPw" href="signup.jsp"><fmt:message key="signup"/></a>
 
                                     </div>
                                 </fieldset>

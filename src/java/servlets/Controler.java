@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import persistance.DAOSubscriber;
 import util.Utility;
 
+
 /**
  *
  * @author Mohamed
@@ -42,6 +43,11 @@ public class Controler extends HttpServlet {
         list = daoSubscriber.getActivtyInformations();
         Utility.builtAllList(list);
         actionResolver = new ActionResolver();
+        String s = getServletContext().getInitParameter("javax.servlet.jsp.jstl.fmt.fallbackLocale");
+        if (s != null)
+            getServletContext().setAttribute("currentLanguage", s);
+        else
+            getServletContext().setAttribute("currentLanguage", "fr");
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
